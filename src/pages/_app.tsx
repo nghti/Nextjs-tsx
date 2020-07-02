@@ -1,17 +1,28 @@
-import { AppProps } from 'next/app'
-import { Provider } from 'react-redux'
+import { ToastContainer } from 'react-toastify'
+import { useRouter } from 'next/router'
 
 import 'antd/dist/antd.css'
+import 'react-toastify/dist/ReactToastify.css'
 
-import { store } from '@/store/configure'
+import { wrapper } from '@/redux/store'
+import DashboardLayout from '@/layouts/DashboardLayout';
 
-function MyApp({Component, pageProps}: AppProps) {
+function App({ Component, pageProps }:any) {
+  const router = useRouter()
   return (
-    //<Provider store={store}>
-      <Component {...pageProps} />
-    //</Provider>
+    <div>
+      <ToastContainer />
+      {router.pathname !== '/auth' ? (
+        <DashboardLayout>
+          <Component {...pageProps} />
+        </DashboardLayout>
+      ) : (
+        <Component {...pageProps} />
+      )
+      }
+    </div>
+    
   )
-
 }
 
-export default MyApp
+export default wrapper.withRedux(App)

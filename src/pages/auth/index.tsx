@@ -1,16 +1,19 @@
 import { Form, Input, Button, Checkbox } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import { NextPage } from 'next'
+import { useDispatch } from 'react-redux'
 
 import * as Styled from '@/pages/auth/styled';
+import { loginRequest } from '@/redux/actions'
 
 interface Props {
   userAgent?: string;
 }
 
-const indexAuth: NextPage<Props> = (userAgent) => {
+const indexAuth: NextPage<Props> = () => {
+  const dispatch = useDispatch()
   const onFinish = (values: any) => {
-    console.log('Received values of form: ', values);
+    dispatch(loginRequest(values))
   };
   return (
     <Styled.ContainerForm>
@@ -21,7 +24,7 @@ const indexAuth: NextPage<Props> = (userAgent) => {
         onFinish={onFinish}
       >
         <Form.Item
-          name="username"
+          name="email"
           rules={[{ required: true, message: 'Please input your Username!' }]}
         >
           <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
@@ -37,7 +40,7 @@ const indexAuth: NextPage<Props> = (userAgent) => {
           />
         </Form.Item>
         <Form.Item>
-          <Form.Item name="remember" valuePropName="checked" noStyle>
+          <Form.Item valuePropName="checked" noStyle>
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
 
