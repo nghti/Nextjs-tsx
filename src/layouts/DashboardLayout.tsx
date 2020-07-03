@@ -1,62 +1,62 @@
-import React from 'react';
-import { Layout } from 'antd';
-import { connect } from 'react-redux';
+import React, { ReactNode } from 'react'
+import { Layout } from 'antd'
+import { connect } from 'react-redux'
 
-import * as Styled from '@/layouts/styled';
-import { TopHeader, LeftSider, BreadCrumb } from '@/layouts/Partials';
-import { logoutRequest } from '@/redux/actions';
+import * as Styled from '@/layouts/styled'
+import { TopHeader, LeftSider, BreadCrumb } from '@/layouts/Partials'
+import { logoutRequest } from '@/redux/actions'
 
-const { Content } = Layout;
+const { Content } = Layout
 
 interface MyProps {
-  logoutRequest?: any;
-  children: React.ReactElement;
+  logoutRequest?: any
+  children?: ReactNode
 }
 
 interface MyState {
-  collapsed: boolean;
-  activeLeft: string;
+  collapsed: boolean
+  activeLeft: string
 }
 
 class DashboardLayout extends React.Component<MyProps, MyState> {
   constructor(props: any) {
-    super(props);
+    super(props)
     this.state = {
       collapsed: false,
       activeLeft: '',
-    };
-    this.logOut = this.logOut.bind(this);
+    }
+    this.logOut = this.logOut.bind(this)
   }
 
   toggle = () => {
-    let showWidth: any = '';
-    showWidth = document.getElementsByClassName('ant-sider')[0].clientWidth;
+    let showWidth: any = ''
+    showWidth = document.getElementsByClassName('ant-sider')[0].clientWidth
 
     if (showWidth === 256) {
       this.setState({
         activeLeft: 'active-left',
-      });
+      })
     } else {
       this.setState({
         activeLeft: '',
-      });
+      })
     }
 
     this.setState({
       collapsed: !this.state.collapsed,
-    });
-  };
+    })
+  }
 
   logOut() {
-    const { logoutRequest } = this.props;
-    logoutRequest();
+    const { logoutRequest } = this.props
+    logoutRequest()
   }
 
   render() {
     return (
       <Styled.ContainerDiv>
         <Layout>
-          <LeftSider collapsed={this.state.collapsed} location="" />
+          <LeftSider collapsed={this.state.collapsed} />
           <Layout className="site-layout">
             <TopHeader
               collapsed={this.state.collapsed}
@@ -71,8 +71,8 @@ class DashboardLayout extends React.Component<MyProps, MyState> {
           </Layout>
         </Layout>
       </Styled.ContainerDiv>
-    );
+    )
   }
 }
 
-export default connect(null, { logoutRequest })(DashboardLayout);
+export default connect(null, { logoutRequest })(DashboardLayout)

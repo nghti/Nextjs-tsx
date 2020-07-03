@@ -6,8 +6,8 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
-    "prettier:check": "prettier --check src/**/*.tsx",
-    "prettier:fix": "prettier --write src/**/*.tsx"
+    "prettier:check": "prettier --check src/**/*.{ts,tsx}",
+    "prettier:fix": "prettier --write src/**/*.{ts,tsx}"
   },
   "dependencies": {
     "@types/lodash": "^4.14.157",

@@ -1,29 +1,24 @@
-import React, { Component } from 'react';
-import { Layout, Menu } from 'antd';
-import {
-  AppstoreOutlined,
-  PieChartOutlined,
-  DesktopOutlined,
-  ContainerOutlined,
-  MailOutlined,
-} from '@ant-design/icons';
-import Link from 'next/link';
+import React, { Component } from 'react'
+import { Layout, Menu } from 'antd'
+import { AppstoreOutlined, PieChartOutlined, DesktopOutlined, ContainerOutlined, MailOutlined } from '@ant-design/icons'
+import Link from 'next/link'
+import { withRouter } from 'next/router'
 
-const { Sider } = Layout;
-const { SubMenu } = Menu;
+const { Sider } = Layout
+const { SubMenu } = Menu
 
 interface MyProps {
-  location: any;
-  collapsed: boolean;
+  router: any
+  collapsed: boolean
 }
 
 export class LeftSider extends Component<MyProps> {
   render() {
-    const { location, collapsed } = this.props;
+    const { router, collapsed } = this.props
     return (
       <Sider className="ant-sider" width="256" trigger={null} collapsible collapsed={collapsed}>
         <div className="logo" />
-        <Menu defaultSelectedKeys={[location.pathname]} mode="inline" theme="dark">
+        <Menu defaultSelectedKeys={[router.pathname]} mode="inline" theme="dark">
           <Menu.Item key="/" icon={<PieChartOutlined />}>
             <Link href="/">
               <a>Dashboard</a>
@@ -55,8 +50,8 @@ export class LeftSider extends Component<MyProps> {
           </SubMenu>
         </Menu>
       </Sider>
-    );
+    )
   }
 }
 
-export default LeftSider;
+export default withRouter(LeftSider)

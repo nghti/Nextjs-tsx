@@ -5,7 +5,7 @@ import { createWrapper } from 'next-redux-wrapper'
 import rootReducer from '@/redux/reducer'
 import rootSaga from '@/redux/saga'
 
-const bindMiddleware = (middleware:any) => {
+const bindMiddleware = (middleware: any) => {
   if (process.env.NODE_ENV !== 'production') {
     const { composeWithDevTools } = require('redux-devtools-extension')
     return composeWithDevTools(applyMiddleware(...middleware))

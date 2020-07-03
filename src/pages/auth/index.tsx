@@ -1,20 +1,15 @@
-import { Form, Input, Button, Checkbox } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { NextPage } from 'next';
-import { useDispatch } from 'react-redux';
+import { Form, Input, Button, Checkbox } from 'antd'
+import { UserOutlined, LockOutlined } from '@ant-design/icons'
+import { useDispatch } from 'react-redux'
 
-import * as Styled from '@/pages/auth/styled';
-import { loginRequest } from '@/redux/actions';
+import * as Styled from '@/pages/auth/styled'
+import { loginRequest } from '@/redux/actions'
 
-interface Props {
-  userAgent?: string;
-}
-
-const IndexAuth: NextPage<Props> = () => {
-  const dispatch = useDispatch();
+const IndexAuth = () => {
+  const dispatch = useDispatch()
   const onFinish = (values: any) => {
-    dispatch(loginRequest(values));
-  };
+    dispatch(loginRequest(values))
+  }
   return (
     <Styled.ContainerForm>
       <Form name="normal_login" className="login-form" initialValues={{ remember: true }} onFinish={onFinish}>
@@ -42,7 +37,7 @@ const IndexAuth: NextPage<Props> = () => {
         </Form.Item>
       </Form>
     </Styled.ContainerForm>
-  );
-};
+  )
+}
 
-export default IndexAuth;
+export default IndexAuth

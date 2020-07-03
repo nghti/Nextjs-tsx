@@ -1,5 +1,5 @@
-import { client } from '@/utils/axios';
+import { client } from '@/utils/axios'
 
-export const loginRequest = (data:any) => {
-  return client().post('/login', data);
-};
+export const loginRequest = (data: any) => {
+  return client().post('/login', data)
+}

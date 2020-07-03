@@ -7,7 +7,7 @@ const initialState = {
   isAuthenticated: isAuthenticated,
 }
 
-function reducer(state:any, action:any) {
+function reducer(state: any, action: any) {
   switch (action.type) {
     case HYDRATE: {
       return { ...state, ...action.payload }
@@ -16,7 +16,7 @@ function reducer(state:any, action:any) {
     case actionTypes.AUTH_LOGIN_SUCCESS:
       return {
         ...state,
-        ...{isAuthenticated: initialState.isAuthenticated}
+        ...{ isAuthenticated: initialState.isAuthenticated },
       }
 
     case actionTypes.AUTH_LOGOUT_SUCCESS:

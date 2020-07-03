@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { red } from '@ant-design/colors';
+import styled from 'styled-components'
+import { red } from '@ant-design/colors'
 
-import styledSystem from '@/assets/styledSystem';
+import styledSystem from '@/assets/styledSystem'
 
 export const AntProSlider = styled.div`
   .ant-carousel {
@@ -14,6 +14,6 @@ export const AntProSlider = styled.div`
     background: ${red[0]};
     overflow: hidden;
   }
-`;
+`
 
-export const AntTitle = styledSystem(styled.h2``);
+export const AntTitle = styledSystem(styled.h2``)

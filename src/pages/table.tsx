@@ -3,7 +3,7 @@ function Table() {
     <div>
       <h2>Table</h2>
     </div>
-  );
+  )
 }
 
-export default Table;
+export default Table

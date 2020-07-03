@@ -3,7 +3,7 @@ function FormPage() {
     <div>
       <h2>form</h2>
     </div>
-  );
+  )
 }
 
-export default FormPage;
+export default FormPage

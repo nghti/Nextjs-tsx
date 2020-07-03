@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
-import { Dropdown, Layout, Menu, Avatar } from 'antd';
-import { MenuUnfoldOutlined, MenuFoldOutlined, UserOutlined } from '@ant-design/icons';
-import Link from 'next/link';
+import React, { Component } from 'react'
+import { Dropdown, Layout, Menu, Avatar } from 'antd'
+import { MenuUnfoldOutlined, MenuFoldOutlined, UserOutlined } from '@ant-design/icons'
+import Link from 'next/link'
 
-import * as Styled from '@/layouts/styled';
+import * as Styled from '@/layouts/styled'
 
-const { Header } = Layout;
+const { Header } = Layout
 
 interface MyProps {
-  collapsed: boolean;
-  activeLeft: string;
-  logOut: any;
-  toggle: any;
+  collapsed: boolean
+  activeLeft: string
+  logOut: any
+  toggle: any
 }
 
 export class TopHeader extends Component<MyProps> {
   render() {
-    const { collapsed, activeLeft, logOut, toggle } = this.props;
+    const { collapsed, activeLeft, logOut, toggle } = this.props
     const menu = (
       <Menu>
         <Menu.Item key="0">
@@ -34,7 +34,7 @@ export class TopHeader extends Component<MyProps> {
           Logout
         </Menu.Item>
       </Menu>
-    );
+    )
     return (
       <Header className={`site-layout-background ${activeLeft}`}>
         {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
@@ -50,8 +50,8 @@ export class TopHeader extends Component<MyProps> {
           </Dropdown>
         </Styled.AntDropdown>
       </Header>
-    );
+    )
   }
 }
 
-export default TopHeader;
+export default TopHeader

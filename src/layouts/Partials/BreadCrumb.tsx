@@ -1,12 +1,12 @@
-import { PageHeader } from 'antd';
-import _ from 'lodash';
-import { withRouter } from 'next/router';
+import { PageHeader } from 'antd'
+import _ from 'lodash'
+import { withRouter } from 'next/router'
 
-import * as Styled from '@/layouts/styled';
+import * as Styled from '@/layouts/styled'
 
 type Props = {
-  router: any;
-};
+  router: any
+}
 
 function BreadCrumb({ router }: Props) {
   const routes = [
@@ -18,7 +18,7 @@ function BreadCrumb({ router }: Props) {
       path: 'first',
       breadcrumbName: `${_.trim(router.asPath, '/')}`,
     },
-  ];
+  ]
   return (
     <div>
       {router.pathname !== '/' && (
@@ -32,7 +32,7 @@ function BreadCrumb({ router }: Props) {
         </Styled.AntProHeader>
       )}
     </div>
-  );
+  )
 }
 
-export default withRouter(BreadCrumb);
+export default withRouter(BreadCrumb)

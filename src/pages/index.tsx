@@ -1,11 +1,11 @@
-import { Carousel } from 'antd';
-import { useState } from 'react';
+import { Carousel } from 'antd'
+import { useState } from 'react'
 
-import * as Styled from '@/pages/styled';
-import ContainerWrap from '@/assets/styledContainer';
+import * as Styled from '@/pages/styled'
+import ContainerWrap from '@/assets/styledContainer'
 
 const IndexPage = () => {
-  const [toggleClass, setToggle] = useState(true);
+  const [toggleClass, setToggle] = useState(true)
   return (
     <ContainerWrap>
       <Styled.AntProSlider>
@@ -112,7 +112,7 @@ const IndexPage = () => {
         </div>
       )}
     </ContainerWrap>
-  );
-};
+  )
+}
 
-export default IndexPage;
+export default IndexPage
