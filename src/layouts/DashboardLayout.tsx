@@ -4,22 +4,22 @@ import { connect } from 'react-redux';
 
 import * as Styled from '@/layouts/styled';
 import { TopHeader, LeftSider, BreadCrumb } from '@/layouts/Partials';
-import { logoutRequest } from '@/redux/actions'
+import { logoutRequest } from '@/redux/actions';
 
 const { Content } = Layout;
 
 interface MyProps {
-  logoutRequest?: any,
-  children: React.ReactElement
+  logoutRequest?: any;
+  children: React.ReactElement;
 }
 
 interface MyState {
-  collapsed: boolean,
-  activeLeft: string
+  collapsed: boolean;
+  activeLeft: string;
 }
 
 class DashboardLayout extends React.Component<MyProps, MyState> {
-  constructor(props:any) {
+  constructor(props: any) {
     super(props);
     this.state = {
       collapsed: false,
@@ -56,7 +56,7 @@ class DashboardLayout extends React.Component<MyProps, MyState> {
     return (
       <Styled.ContainerDiv>
         <Layout>
-          <LeftSider collapsed={this.state.collapsed} location='' />
+          <LeftSider collapsed={this.state.collapsed} location="" />
           <Layout className="site-layout">
             <TopHeader
               collapsed={this.state.collapsed}
@@ -65,7 +65,7 @@ class DashboardLayout extends React.Component<MyProps, MyState> {
               logOut={this.logOut}
             />
             <div className="side-wrap">
-              <BreadCrumb location='' />
+              <BreadCrumb />
               <Content className="site-content">{this.props.children}</Content>
             </div>
           </Layout>
@@ -75,4 +75,4 @@ class DashboardLayout extends React.Component<MyProps, MyState> {
   }
 }
 
-export default connect(null, { logoutRequest })(DashboardLayout)
+export default connect(null, { logoutRequest })(DashboardLayout);

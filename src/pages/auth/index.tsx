@@ -1,43 +1,28 @@
-import { Form, Input, Button, Checkbox } from 'antd'
-import { UserOutlined, LockOutlined } from '@ant-design/icons'
-import { NextPage } from 'next'
-import { useDispatch } from 'react-redux'
+import { Form, Input, Button, Checkbox } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { NextPage } from 'next';
+import { useDispatch } from 'react-redux';
 
 import * as Styled from '@/pages/auth/styled';
-import { loginRequest } from '@/redux/actions'
+import { loginRequest } from '@/redux/actions';
 
 interface Props {
   userAgent?: string;
 }
 
-const indexAuth: NextPage<Props> = () => {
-  const dispatch = useDispatch()
+const IndexAuth: NextPage<Props> = () => {
+  const dispatch = useDispatch();
   const onFinish = (values: any) => {
-    dispatch(loginRequest(values))
+    dispatch(loginRequest(values));
   };
   return (
     <Styled.ContainerForm>
-      <Form
-        name="normal_login"
-        className="login-form"
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-      >
-        <Form.Item
-          name="email"
-          rules={[{ required: true, message: 'Please input your Username!' }]}
-        >
+      <Form name="normal_login" className="login-form" initialValues={{ remember: true }} onFinish={onFinish}>
+        <Form.Item name="email" rules={[{ required: true, message: 'Please input your Username!' }]}>
           <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
         </Form.Item>
-        <Form.Item
-          name="password"
-          rules={[{ required: true, message: 'Please input your Password!' }]}
-        >
-          <Input
-            prefix={<LockOutlined className="site-form-item-icon" />}
-            type="password"
-            placeholder="Password"
-          />
+        <Form.Item name="password" rules={[{ required: true, message: 'Please input your Password!' }]}>
+          <Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="Password" />
         </Form.Item>
         <Form.Item>
           <Form.Item valuePropName="checked" noStyle>
@@ -57,7 +42,7 @@ const indexAuth: NextPage<Props> = () => {
         </Form.Item>
       </Form>
     </Styled.ContainerForm>
-  )
-}
+  );
+};
 
-export default indexAuth
+export default IndexAuth;

@@ -1,10 +1,14 @@
 import { PageHeader } from 'antd';
 import _ from 'lodash';
-import { withRouter } from 'next/router'
+import { withRouter } from 'next/router';
 
 import * as Styled from '@/layouts/styled';
 
-function BreadCrumb({ router }:any) {
+type Props = {
+  router: any;
+};
+
+function BreadCrumb({ router }: Props) {
   const routes = [
     {
       path: 'index',
@@ -12,14 +16,14 @@ function BreadCrumb({ router }:any) {
     },
     {
       path: 'first',
-      breadcrumbName: `${_.trim(router.pathname, '/')}`,
+      breadcrumbName: `${_.trim(router.asPath, '/')}`,
     },
   ];
   return (
     <div>
       {router.pathname !== '/' && (
         <Styled.AntProHeader>
-          <PageHeader className="site-page-header" title="Form" breadcrumb={{ routes }}>
+          <PageHeader className="site-page-header" title={`${_.trim(router.asPath, '/')}`} breadcrumb={{ routes }}>
             <p>
               Form pages are used to collect or verify information to users, and basic forms are common in scenarios
               where there are fewer data items.
@@ -31,4 +35,4 @@ function BreadCrumb({ router }:any) {
   );
 }
 
-export default withRouter(BreadCrumb)
+export default withRouter(BreadCrumb);

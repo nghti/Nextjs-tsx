@@ -1,14 +1,15 @@
-import { ToastContainer } from 'react-toastify'
-import { useRouter } from 'next/router'
+import { ToastContainer } from 'react-toastify';
+import { useRouter } from 'next/router';
+import { AppProps } from 'next/app';
 
-import 'antd/dist/antd.css'
-import 'react-toastify/dist/ReactToastify.css'
+import 'antd/dist/antd.css';
+import 'react-toastify/dist/ReactToastify.css';
 
-import { wrapper } from '@/redux/store'
+import { wrapper } from '@/redux/store';
 import DashboardLayout from '@/layouts/DashboardLayout';
 
-function App({ Component, pageProps }:any) {
-  const router = useRouter()
+function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
   return (
     <div>
       <ToastContainer />
@@ -18,11 +19,9 @@ function App({ Component, pageProps }:any) {
         </DashboardLayout>
       ) : (
         <Component {...pageProps} />
-      )
-      }
+      )}
     </div>
-    
-  )
+  );
 }
 
-export default wrapper.withRedux(App)
+export default wrapper.withRedux(App);

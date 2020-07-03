@@ -7,21 +7,17 @@ import {
   ContainerOutlined,
   MailOutlined,
 } from '@ant-design/icons';
-import Link from 'next/link'
+import Link from 'next/link';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 interface MyProps {
-  location: any,
-  collapsed: boolean
+  location: any;
+  collapsed: boolean;
 }
 
-interface MyState {
-
-}
-
-export class LeftSider extends Component<MyProps, MyState> {
+export class LeftSider extends Component<MyProps> {
   render() {
     const { location, collapsed } = this.props;
     return (
@@ -29,13 +25,19 @@ export class LeftSider extends Component<MyProps, MyState> {
         <div className="logo" />
         <Menu defaultSelectedKeys={[location.pathname]} mode="inline" theme="dark">
           <Menu.Item key="/" icon={<PieChartOutlined />}>
-            <Link href="/"><a>Dashboard</a></Link>
+            <Link href="/">
+              <a>Dashboard</a>
+            </Link>
           </Menu.Item>
           <Menu.Item key="/form" icon={<DesktopOutlined />}>
-            <Link href="/form"><a>Form</a></Link>
+            <Link href="/form">
+              <a>Form</a>
+            </Link>
           </Menu.Item>
           <Menu.Item key="/table" icon={<ContainerOutlined />}>
-            <Link href="/table"><a>Table</a></Link>
+            <Link href="/table">
+              <a>Table</a>
+            </Link>
           </Menu.Item>
           <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
             <Menu.Item key="5">Option 5</Menu.Item>
